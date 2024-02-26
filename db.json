@@ -1,0 +1,13 @@
+{
+    "clientes": [
+        {
+            "id": 1,
+            "nome": "Ricardo Rosa Rocker s",
+            "cpf": "44267258544",
+            "dataNascimento": "1995-09-04",
+            "rendaMensal": 24400,
+            "email": "ricardo.santos.rocker@gmail.com",
+            "dataCadastro": "2023-12-08"
+        }
+    ]
+}
