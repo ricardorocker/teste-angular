@@ -1,0 +1,23 @@
+@import "../../../styles/_variables";
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-brand-primary-darkest;
+    height: 55px;
+    padding: 0 24px;
+}
+
+.menu-icon {
+    display: flex;
+    margin-right: 0;
+}
+
+.logo {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    color: $color-neutral-white;
+    font-size: $fontsize-paragraph-03;
+}
