@@ -1,0 +1,19 @@
+@import "../../../styles/_variables";
+
+.error {
+    display: flex;
+    align-items: center;
+    color: $color-feedback-danger-medium;
+    font-size: $fontsize-paragraph-02;
+}
+
+.error::before {
+    content: "";
+    background-image: url(../../../assets/small-attention-icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    display: inline-block;
+}

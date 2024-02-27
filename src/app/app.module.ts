@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/button/button.component';
 import { TableListComponent } from './components/table-list/table-list.component';
 import { ModalMessageComponent } from './components/modal-message/modal-message.component';
+import { ControlErrorComponent } from './components/control-error/control-error.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ModalMessageComponent } from './components/modal-message/modal-message.
     HeaderComponent,
     ButtonComponent,
     TableListComponent,
-    ModalMessageComponent
+    ModalMessageComponent,
+    ControlErrorComponent
   ],
   imports: [
     BrowserModule,
