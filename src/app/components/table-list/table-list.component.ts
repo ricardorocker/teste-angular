@@ -1,14 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Cliente } from 'src/app/models/cliente';
+import { Params } from 'src/app/models/params';
 
 @Component({
   selector: 'app-table-list',
   templateUrl: './table-list.component.html',
   styleUrls: ['./table-list.component.scss']
 })
-export class TableListComponent implements OnInit {
+export class TableListComponent {
   @Input() clientes!: Cliente[] | null;
-  @Input() currentPage!: number | null;
+  @Input() params!: Params;
   @Input() disableNextButton: boolean = false;
   @Input() disablePrevButton: boolean = true;
   @Output() selectedClient: EventEmitter<Cliente | null> = new EventEmitter<Cliente | null>();
@@ -22,11 +23,6 @@ export class TableListComponent implements OnInit {
     dataCadastro: true,
     rendaMensal: true,
   };
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   selectClient(cliente: Cliente): void {
     this.clienteSelecionado =

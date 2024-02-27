@@ -13,7 +13,9 @@ import { ListagemClientesComponent } from './views/listagem-clientes/listagem-cl
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormClienteComponent } from './views/form-cliente/form-cliente.component';
 import { CpfPipe } from './pipes/cpf.pipe';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 
+export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ import { CpfPipe } from './pipes/cpf.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgxMaskModule.forRoot(),
     ReactiveFormsModule,
   ],
   providers: [],

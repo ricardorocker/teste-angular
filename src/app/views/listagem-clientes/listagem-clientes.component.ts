@@ -2,30 +2,32 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente';
-import { Filtros } from 'src/app/models/filtros';
+import { Params } from 'src/app/models/params';
 import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-listagem-clientes',
   templateUrl: './listagem-clientes.component.html',
-  styleUrls: ['./listagem-clientes.component.scss']
+  styleUrls: ['./listagem-clientes.component.scss'],
 })
 export class ListagemClientesComponent implements OnInit {
-  clientes!: Cliente[]
+  clientes!: Cliente[];
   clienteSelecionado?: Cliente | null;
   showModal: boolean = false;
   feedbackMessage: string = '';
   successMessage: boolean = true;
-  filtros: Filtros = {};
   currentPageData$!: Observable<Cliente[]>;
-  currentPage: number = 1;
-  clientsPerPage: number = 6;
-  field?: string;
-  order?: string;
+  params: Params = {
+    currentPage: 1,
+    clientsPerPage: 6,
+    field: undefined,
+    order: undefined,
+    filtros: {},
+  };
   disableNextButton: boolean = false;
   disablePrevButton: boolean = true;
 
-  constructor(private clienteService: ClienteService, private router: Router) { }
+  constructor(private clienteService: ClienteService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadData();
@@ -33,16 +35,12 @@ export class ListagemClientesComponent implements OnInit {
 
   loadData(): void {
     this.currentPageData$ = this.clienteService.getPaginateClients(
-      this.currentPage,
-      this.clientsPerPage,
-      this.field,
-      this.order,
-      this.filtros
-    )
+      this.params
+    );
   }
 
   filter(): void {
-    this.currentPage = 1;
+    this.params.currentPage = 1;
     this.loadData();
   }
 
@@ -62,17 +60,19 @@ export class ListagemClientesComponent implements OnInit {
   removeButton(): void {
     if (this.clienteSelecionado) {
       const clienteId = this.clienteSelecionado.id;
-      this.clienteService.delete(clienteId).pipe(
-        tap(() => {
-          this.showFeedback('Cliente removido com sucesso!', true);
-          this.loadData();
-        }),
-        catchError((res) => {
-          const errorMessage = `Erro ao remover cliente: ${res.error}`;
-          this.showFeedback(errorMessage, false);
-          return of(null);
-        })
-      )
+      this.clienteService
+        .delete(clienteId)
+        .pipe(
+          tap(() => {
+            this.showFeedback('Cliente removido com sucesso!', true);
+            this.loadData();
+          }),
+          catchError((res) => {
+            const errorMessage = `Erro ao remover cliente: ${res.error}`;
+            this.showFeedback(errorMessage, false);
+            return of(null);
+          })
+        )
         .subscribe();
     } else {
       this.showFeedback('Selecione um cliente para remove-lo.', false);
@@ -83,31 +83,28 @@ export class ListagemClientesComponent implements OnInit {
     const asc: boolean = orderState[0];
     const field: string = orderState[1];
 
-    asc ? (this.order = 'asc') : (this.order = 'desc');
-    this.field = field;
+    asc
+      ? (this.params.order = 'asc')
+      : (this.params.order = 'desc');
+    this.params.field = field;
 
-    if (this.currentPage !== 1) this.currentPage = 1;
+    if (this.params.currentPage !== 1)
+      this.params.currentPage = 1;
 
     this.loadData();
   }
 
   changePage(offset: number) {
-    const newPage = this.currentPage + offset;
+    this.params.currentPage += offset;
 
     this.clienteService
-      .getPaginateClients(
-        newPage,
-        this.clientsPerPage,
-        this.field,
-        this.order,
-        this.filtros
-      )
+      .getPaginateClients(this.params)
       .subscribe((data) => {
         if (data.length > 0) {
           this.currentPageData$ = of(data);
-          this.currentPage = newPage;
-          this.disablePrevButton = this.currentPage === 1;
-          this.disableNextButton = data.length < this.clientsPerPage;
+          this.disablePrevButton = this.params.currentPage === 1;
+          this.disableNextButton =
+            data.length < this.params.clientsPerPage;
         } else {
           this.disableNextButton = true;
         }

@@ -66,9 +66,9 @@
   <div class="btn-pagination">
     <button (click)="prevPage()" [disabled]="disablePrevButton">«</button>
   </div>
-  <div *ngIf="currentPage">
+  <div *ngIf="params.currentPage">
     <button disabled>
-      {{ currentPage }}
+      {{ params.currentPage }}
     </button>
   </div>
   <div class="btn-pagination">

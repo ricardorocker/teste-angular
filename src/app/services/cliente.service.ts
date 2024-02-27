@@ -3,41 +3,36 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Cliente } from '../models/cliente';
 import { v4 as uuidv4 } from 'uuid';
+import { Params } from '../models/params';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClienteService {
-  private apiUrl = 'http://localhost:3000/clientes'
+  private apiUrl = 'http://localhost:3000/clientes';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getClients(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.apiUrl);
   }
 
-  getPaginateClients(
-    page: number,
-    clientsPerPage: number,
-    field?: string,
-    order?: string,
-    filters?: any
-  ): Observable<Cliente[]> {
-    let params = new HttpParams()
-      .set('_page', page.toString())
-      .set('_limit', clientsPerPage.toString())
-      .set('_sort', field ? field : '')
-      .set('_order', order ? order : '');
+  getPaginateClients(params: Params): Observable<Cliente[]> {
+    let paramsApi = new HttpParams()
+      .set('_page', params.currentPage.toString())
+      .set('_limit', params.clientsPerPage.toString())
+      .set('_sort', params.field ? params.field : '')
+      .set('_order', params.order ? params.order : '');
 
-    if (filters) {
-      Object.keys(filters).forEach((key) => {
-        if (filters[key]) {
-          params = params.set(`${key}_like`, filters[key]);
+    if (params.filtros) {
+      Object.keys(params.filtros).forEach((key) => {
+        if (params.filtros && params.filtros[key]) {
+          paramsApi = paramsApi.set(`${key}_like`, params.filtros[key]);
         }
       });
     }
 
-    return this.http.get<Cliente[]>(this.apiUrl, { params });
+    return this.http.get<Cliente[]>(this.apiUrl, { params: paramsApi });
   }
 
   getById(idCliente: string): Observable<Cliente | {}> {
