@@ -1,0 +1,31 @@
+@import "../../../styles/_variables";
+
+.btn {
+    color: $color-neutral-white;
+    padding: 10px 16px;
+    border-radius: 20px;
+    border: none;
+    font-size: $fontsize-paragraph;
+    font-weight: $fontweight-bold;
+    line-height: 200%;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background-color: $color-brand-primary-medium;
+}
+
+.btn-primary:hover {
+    cursor: pointer;
+    background-color: $color-brand-primary-light;
+}
+
+.btn-default {
+    background-color: $color-neutral-medium;
+}
+
+.btn-default:hover {
+    cursor: pointer;
+    background-color: $color-neutral-lightest;
+    color: $color-brand-primary-darkest;
+}
