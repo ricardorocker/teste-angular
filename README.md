@@ -1,27 +1,111 @@
-# TesteAngular
+# Projeto Angular de CRUD de Clientes
+Bem-vindo ao repositório do projeto CRUD de Clientes desenvolvido em Angular. 
+Este projeto inclui funcionalidades de listagem, formulário, estilos personalizados, serviços, pipes, validadores, modelos e componentes reutilizáveis.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
+## [Video de Demonstração]
 
-## Development server
+## Estrutura do Projeto
+### Views
+- Listagem Component
+- Formulário Component
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Estilos
+- _variables.scss: Arquivo de variáveis para a estilização consistente.
 
-## Code scaffolding
+### Serviços
+- Cliente.service.ts: Serviço responsável por interagir com a API fake para operações CRUD de clientes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Pipes
+- Cpf.pipe.ts: Pipe personalizado para formatar exibição de CPF.
 
-## Build
+### Validadores
+- cpf.validator.ts: Validador personalizado para CPF.
+- idade.validator.ts: Validador personalizado para idade.
+- nome.validator.ts: Validador personalizado para nome.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Modelos
+- Cliente.ts: Modelo de dados para representar um cliente.
+- Filtros.ts: Modelo de dados para representar filtros aplicáveis à listagem de clientes.
+- Params.ts: Modelo de dados para representar configuração de paginação da listagem de clientes.
 
-## Running unit tests
+### Componentes Reutilizáveis
+- Modal message
+- Header
+- Button
+- Control error
+- Table list
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Capturas de Tela
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Tela Principal
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Tela de Edição
+
+
+### Card de feedback
+
+
+
+## Conhecimentos Técnicos Utilizados
+- Criação de protótipo personalizado em Figma
+- Criação de variáveis SCSS seguindo cores, tamanhos e pesos de fontes
+- Estilos gerais
+- Criação de dumb componentes
+- @Input, @Output
+- Interpolation
+- ngOnInit
+- ngIf, ngFor, ngTemplate, ngContainer
+- ngModel, ngClass
+- ReactiveForms, FormControls, FormValidators
+- patchValue
+- Custom Validators: ValidatorFn, ValidationErrors
+- Mensagens de erros customizadas
+- Máscaras (Ngx Masks)
+- Pipes
+- Custom Pipes (PipeTransform)
+- Overlay
+- Route, Route ID
+- Service: HttpClient, HttpParams, GET, PUT, POST, DELETE
+- RxJS: pipe, tap, map, switchMap, catchError
+- Interfaces (Model)
+- Card de feedback
+- HttpParams: Filtro, Paginação, Ordenação
+- JSON-Server (API Fake)
+
+## Como Executar o Projeto
+
+Para executar o projeto localmente, siga os passos descritos anteriormente. Certifique-se de ter o Node.js e o Angular CLI instalados em sua máquina.
+
+```bash
+# Instalar as dependências
+npm install
+
+# Iniciar o servidor de desenvolvimento
+ng serve
+
+# Acesse a aplicação no navegador em http://localhost:4200/
+```
+
+#### Iniciar o JSON Server (API Fake)
+
+O projeto depende de uma API fake fornecida pelo JSON Server para simular operações de CRUD. Certifique-se de iniciar o JSON Server antes de executar a aplicação Angular.
+
+```bash
+# Instalar o JSON Server globalmente (caso ainda não tenha)
+npm install -g json-server
+
+# Iniciar o JSON Server (a partir da raiz do projeto)
+json-server --watch db.json
+````
+
+## Contato
+Sinta-se à vontade para entrar em contato para mais informações ou esclarecimentos sobre o projeto.
+
+- Nome: Ricardo Rocker
+- Email: ricardo.santos.rocker@gmail.com
+- GitHub: [GitHub Profile](https://github.com/ricardorocker)
+- Website: [Ricardo Rocker's Website](https://ricardorocker.com/)
+- Linkedin: [Ricardo Rocker's Linkdin](https://www.linkedin.com/in/ricardo-s-rocker/)
+- Instagram: [Ricardo Rocker's Instagram](https://www.instagram.com/ricardorocker.developer/)

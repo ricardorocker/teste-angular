@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { Subscription, catchError, of, tap } from 'rxjs';
-import { ClienteService } from 'src/app/services/cliente.service';
-import { cpfValidator } from 'src/app/validators/cpf.validator';
-import { idadeValidator } from 'src/app/validators/idade.validator';
-import { nomeValidator } from 'src/app/validators/nome.validator';
+import { ClienteService } from '../../services/cliente.service';
+import { cpfValidator } from '../../validators/cpf.validator';
+import { idadeValidator } from '../../validators/idade.validator';
+import { nomeValidator } from '../../validators/nome.validator';
 
 @Component({
   selector: 'app-form-cliente',

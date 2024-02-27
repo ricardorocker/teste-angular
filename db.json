@@ -26,6 +26,60 @@
       "rendaMensal": "4300",
       "email": "alana@gmail.com",
       "dataCadastro": "2024-02-23"
+    },
+    {
+      "id": "a8ac1e33-8f68-48d2-9b0e-04ccd34c29fd",
+      "nome": "Sayonara Uchôa Facre",
+      "cpf": "48305714110",
+      "dataNascimento": "1994-03-07",
+      "rendaMensal": 5240,
+      "email": "sayonara@gmail.com",
+      "dataCadastro": "2024-02-26"
+    },
+    {
+      "id": "06ceb477-4a32-444f-ae80-69ecbed1a2ee",
+      "nome": "Lucia Quindeler Camara",
+      "cpf": "87966559416",
+      "dataNascimento": "1991-12-12",
+      "rendaMensal": 6540,
+      "email": "lucia@gmail.com",
+      "dataCadastro": "2024-02-24"
+    },
+    {
+      "id": "b3360565-d881-49bd-ac2b-0d5b1c0492b7",
+      "nome": "José Maria Coimbra Matos",
+      "cpf": "76785356270",
+      "dataNascimento": "2001-10-21",
+      "rendaMensal": 7550,
+      "email": "jose@gmail.com",
+      "dataCadastro": "2024-02-21"
+    },
+    {
+      "id": "5bd15109-4d5f-4f84-9324-4e52d598d8f1",
+      "nome": "Margarida Kuster Rego",
+      "cpf": "24227686016",
+      "dataNascimento": "1992-04-05",
+      "rendaMensal": 8600,
+      "email": "margarida@gmail.com",
+      "dataCadastro": "2024-02-19"
+    },
+    {
+      "id": "37e148ba-c3ed-4253-9ade-267380850fdf",
+      "nome": "Moacir Borges Cordeiro",
+      "cpf": "32842632176",
+      "dataNascimento": "2005-09-04",
+      "rendaMensal": 1650,
+      "email": "moacir@gmail.com",
+      "dataCadastro": "2024-02-17"
+    },
+    {
+      "id": "53832ecb-f50c-48c8-8463-9a531857be5c",
+      "nome": "Almir Barrada Medel",
+      "cpf": "08975983269",
+      "dataNascimento": "2002-02-01",
+      "rendaMensal": 2640,
+      "email": "almir@gmail.com",
+      "dataCadastro": "2024-02-13"
     }
   ]
 }

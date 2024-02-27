@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Cliente } from 'src/app/models/cliente';
-import { Params } from 'src/app/models/params';
+
+import { Cliente } from '../../models/cliente';
+import { Params } from '../../models/params';
 
 @Component({
   selector: 'app-table-list',

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { Observable, catchError, of, tap } from 'rxjs';
-import { Cliente } from 'src/app/models/cliente';
-import { Params } from 'src/app/models/params';
-import { ClienteService } from 'src/app/services/cliente.service';
+import { Cliente } from '../../models/cliente';
+import { Params } from '../../models/params';
+import { ClienteService } from '../../services/cliente.service';
 
 @Component({
   selector: 'app-listagem-clientes',
