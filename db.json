@@ -17,6 +17,15 @@
       "rendaMensal": "4600",
       "email": "lira.petrucia@gmail.com",
       "dataCadastro": "2024-02-21"
+    },
+    {
+      "id": "38ff6323-5aef-4da0-97cc-3cbfc61c6229",
+      "nome": "Alana Rodrigues",
+      "cpf": "12345678911",
+      "dataNascimento": "1996-02-02",
+      "rendaMensal": "4300",
+      "email": "alana@gmail.com",
+      "dataCadastro": "2024-02-23"
     }
   ]
 }

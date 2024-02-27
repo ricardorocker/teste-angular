@@ -16,6 +16,10 @@
           placeholder="Digite o nome"
         />
       </div>
+      <app-control-error
+        *ngIf="getErrorMessage('nome')"
+        [controlErrorMessage]="getErrorMessage('nome', 'Nome')"
+      ></app-control-error>
     </div>
     <div class="control">
       <div [ngClass]="'form-group ' + (idCliente ? 'disabled' : '')">
@@ -30,6 +34,10 @@
           [readOnly]="idCliente"
         />
       </div>
+      <app-control-error
+        *ngIf="getErrorMessage('cpf')"
+        [controlErrorMessage]="getErrorMessage('cpf', 'CPF')"
+      ></app-control-error>
     </div>
     <div class="control">
       <div class="form-group">
@@ -41,6 +49,12 @@
           formControlName="dataNascimento"
         />
       </div>
+      <app-control-error
+        *ngIf="getErrorMessage('dataNascimento')"
+        [controlErrorMessage]="
+          getErrorMessage('dataNascimento', 'Data de Nascimento')
+        "
+      ></app-control-error>
     </div>
     <div class="control">
       <div class="form-group">
@@ -56,6 +70,10 @@
           placeholder="R$0.000,00"
         />
       </div>
+      <app-control-error
+        *ngIf="getErrorMessage('rendaMensal')"
+        [controlErrorMessage]="getErrorMessage('rendaMensal', 'Renda Mensal')"
+      ></app-control-error>
     </div>
     <div class="control">
       <div class="form-group">
@@ -70,6 +88,10 @@
           email
         />
       </div>
+      <app-control-error
+        *ngIf="getErrorMessage('email')"
+        [controlErrorMessage]="getErrorMessage('email', 'E-mail')"
+      ></app-control-error>
     </div>
     <div class="control">
       <div class="form-group">
@@ -81,6 +103,10 @@
           formControlName="dataCadastro"
         />
       </div>
+      <app-control-error
+        *ngIf="getErrorMessage('dataCadastro')"
+        [controlErrorMessage]="getErrorMessage('dataCadastro', 'Data de Cadastro')"
+      ></app-control-error>
     </div>
   </form>
 

@@ -3,6 +3,9 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, catchError, of, tap } from 'rxjs';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { cpfValidator } from 'src/app/validators/cpf.validator';
+import { idadeValidator } from 'src/app/validators/idade.validator';
+import { nomeValidator } from 'src/app/validators/nome.validator';
 
 @Component({
   selector: 'app-form-cliente',
@@ -23,9 +26,9 @@ export class FormClienteComponent implements OnInit {
   ) {
     this.form = this.formBuilder.group({
       id: [],
-      nome: ['', [Validators.required]],
-      cpf: ['', [Validators.required]],
-      dataNascimento: ['', [Validators.required]],
+      nome: ['', [Validators.required, nomeValidator()]],
+      cpf: ['', [Validators.required, cpfValidator()]],
+      dataNascimento: ['', [Validators.required, idadeValidator()]],
       rendaMensal: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       dataCadastro: ['', Validators.required],
@@ -75,6 +78,25 @@ export class FormClienteComponent implements OnInit {
         })
       )
       .subscribe();
+  }
+
+  getErrorMessage(controlName: string, labelName?: string): string {
+    const formControl = this.form.get(controlName);
+
+    if (formControl?.touched) {
+      const customErrors = ['nomeInvalido', 'cpfInvalido', 'idadeInvalida'];
+
+      switch (true) {
+        case formControl?.hasError('required'):
+          return `${labelName} é obrigatório`;
+        case formControl?.hasError('email'):
+          return 'E-mail inválido';
+        case customErrors.some((error) => formControl?.hasError(error)):
+          return formControl.errors?.['message'];
+      }
+    }
+
+    return '';
   }
 
   onCardClick() {
