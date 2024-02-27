@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { Cliente } from '../models/cliente';
 
 @Injectable({
@@ -30,5 +30,9 @@ export class ClienteService {
 
   update(idCliente: number, cliente: Cliente): Observable<Cliente> {
     return this.http.put<Cliente>(`${this.apiUrl}/${idCliente}`, cliente);
+  }
+
+  delete(idCliente: number): Observable<Cliente> {
+    return this.http.delete<Cliente>(`${this.apiUrl}/${idCliente}`);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cliente } from 'src/app/models/cliente';
 
 @Component({
@@ -8,6 +8,7 @@ import { Cliente } from 'src/app/models/cliente';
 })
 export class TableListComponent implements OnInit {
   @Input() clientes!: Cliente[];
+  @Output() selectedClient: EventEmitter<Cliente | null> = new EventEmitter<Cliente | null>();
 
   clienteSelecionado?: Cliente | null;
 
@@ -19,6 +20,6 @@ export class TableListComponent implements OnInit {
   selectClient(cliente: Cliente): void {
     this.clienteSelecionado =
       this.clienteSelecionado === cliente ? null : cliente;
+    this.selectedClient.emit(this.clienteSelecionado);
   }
-
 }

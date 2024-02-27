@@ -1,5 +1,6 @@
 <div class="title">Clientes</div>
 
+<div class="overlay" *ngIf="showModal" (click)="onOverlayClick($event)"></div>
 <div class="header">
   <div class="filters">
     <div class="form-group">
@@ -37,4 +38,13 @@
   </div>
 </div>
 
-<app-table-list [clientes]="clientes"></app-table-list>
+<app-table-list [clientes]="clientes" (selectedClient)="selectedClient($event)"></app-table-list>
+
+<div class="card-component">
+  <app-modal-message
+    *ngIf="showModal"
+    (okClick)="onCardClick()"
+    [feedbackMessage]="feedbackMessage"
+    [successMessage]="successMessage"
+  ></app-modal-message>
+</div>

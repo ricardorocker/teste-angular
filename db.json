@@ -17,33 +17,6 @@
       "rendaMensal": 7900,
       "email": "lirapetrucia@gmail.com",
       "dataCadastro": "2023-12-14"
-    },
-    {
-      "id": null,
-      "nome": "Ricardinho",
-      "cpf": "12145478711",
-      "dataNascimento": "2024-01-17",
-      "rendaMensal": "3560",
-      "email": "ricardo.santos.rocker@gmail.com",
-      "dataCadastro": "2024-02-27"
-    },
-    {
-      "id": null,
-      "nome": "Ricardinho",
-      "cpf": "442.672.838-00",
-      "dataNascimento": "2024-01-10",
-      "rendaMensal": "124578",
-      "email": "ricardo.santos.rocker@gmail.com",
-      "dataCadastro": "2024-02-21"
-    },
-    {
-      "id": null,
-      "nome": "Ricardinho",
-      "cpf": "442.672.838-00",
-      "dataNascimento": "2024-01-28",
-      "rendaMensal": "45454",
-      "email": "ricardo.santos.rocker@gmail.com",
-      "dataCadastro": "2024-02-10"
     }
   ]
 }
