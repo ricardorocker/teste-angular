@@ -4,4 +4,39 @@ body,
 html {
     margin: 0;
     font-family: $font-family-root;
+    background-color: #f9f9f9;
+}
+
+.title {
+    font-size: $fontsize-heading;
+    text-transform: uppercase;
+    font-weight: $fontweight-extra-bold;
+    color: $color-brand-primary-dark;
+}
+
+.form-group {
+    border-radius: 8px;
+    border: 1px solid $color-neutral-lightest;
+    background-color: $color-neutral-white;
+    display: flex;
+    flex-direction: column;
+    padding: 9px 16px;
+}
+
+.label {
+    color: $color-brand-primary-medium;
+    font-weight: $fontweight-bold;
+    font-size: $fontsize-paragraph;
+    line-height: 150%;
+}
+
+.input {
+    color: $color-brand-primary-medium;
+    margin-top: 7px;
+    font-weight: $fontweight-regular;
+    font-size: $fontsize-paragraph-02;
+    line-height: 150%;
+    border: none;
+    outline: none;
+    padding: 0;
 }
