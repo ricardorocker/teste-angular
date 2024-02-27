@@ -11,7 +11,7 @@ import { ClienteService } from 'src/app/services/cliente.service';
 })
 export class FormClienteComponent implements OnInit {
   form: FormGroup;
-  idCliente?: number;
+  idCliente?: string;
   sub?: Subscription;
   showModal: boolean = false;
 
@@ -34,7 +34,7 @@ export class FormClienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe((params) => {
-      this.idCliente = +params['id'];
+      this.idCliente = params['id'];
       if (this.idCliente) {
         this.clienteService
           .getById(this.idCliente)

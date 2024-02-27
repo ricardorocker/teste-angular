@@ -1,22 +1,22 @@
 {
   "clientes": [
     {
-      "id": 1,
-      "nome": "Ricardo Rosa Rocker s",
-      "cpf": "44267258544",
+      "id": "e80295e2-84bf-4e9c-962e-f5dca7610744",
+      "nome": "Ricardo Santos Rocker",
+      "cpf": "44267283888",
       "dataNascimento": "1995-09-04",
-      "rendaMensal": 24400,
+      "rendaMensal": "6500",
       "email": "ricardo.santos.rocker@gmail.com",
-      "dataCadastro": "2023-12-08"
+      "dataCadastro": "2024-02-28"
     },
     {
-      "id": 2,
-      "nome": "Petrucia Lira Soaresss",
-      "cpf": "45678912311",
-      "dataNascimento": "1997-12-10",
-      "rendaMensal": 7900,
-      "email": "lirapetrucia@gmail.com",
-      "dataCadastro": "2023-12-14"
+      "id": "9b202542-939d-4416-a352-8e69aab98805",
+      "nome": "Petrucia Lira Soares",
+      "cpf": "121511145744",
+      "dataNascimento": "1997-10-18",
+      "rendaMensal": "4600",
+      "email": "lira.petrucia@gmail.com",
+      "dataCadastro": "2024-02-21"
     }
   ]
 }
