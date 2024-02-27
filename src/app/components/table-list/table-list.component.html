@@ -2,10 +2,42 @@
   <div class="tb-row tb-header">
     <tr>
       <th role="row"></th>
-      <th class="nome-column">NOME</th>
-      <th>CPF</th>
-      <th>DATA CADASTRO</th>
-      <th>RENDA MENSAL</th>
+      <th class="nome-column">
+        NOME
+        <button
+          class="btn-order"
+          [ngClass]="orderState.nome ? 'asc' : 'desc'"
+          aria-label="Order Button"
+          (click)="sort('nome')"
+        ></button>
+      </th>
+      <th>
+        CPF
+        <button
+          class="btn-order"
+          [ngClass]="orderState.cpf ? 'asc' : 'desc'"
+          aria-label="Order Button"
+          (click)="sort('cpf')"
+        ></button>
+      </th>
+      <th>
+        DATA CADASTRO
+        <button
+          class="btn-order"
+          [ngClass]="orderState.dataCadastro ? 'asc' : 'desc'"
+          aria-label="Order Button"
+          (click)="sort('dataCadastro')"
+        ></button>
+      </th>
+      <th>
+        RENDA MENSAL
+        <button
+          class="btn-order"
+          [ngClass]="orderState.rendaMensal ? 'asc' : 'desc'"
+          aria-label="Order Button"
+          (click)="sort('rendaMensal')"
+        ></button>
+      </th>
     </tr>
   </div>
   <div
@@ -23,10 +55,23 @@
         />
       </td>
       <td>{{ cliente.nome }}</td>
-      <td>{{ cliente.cpf }}</td>
-      <!-- TODO: Implementar cpf custom pipe  -->
+      <td>{{ cliente.cpf | cpf }}</td>
       <td>{{ cliente.dataCadastro | date : "dd/MM/yyy" }}</td>
       <td>{{ cliente.rendaMensal | currency : "BRL" }}</td>
     </tr>
   </div>
 </table>
+
+<div class="pagination" *ngIf="clientes">
+  <div class="btn-pagination">
+    <button (click)="prevPage()" [disabled]="disablePrevButton">«</button>
+  </div>
+  <div *ngIf="currentPage">
+    <button disabled>
+      {{ currentPage }}
+    </button>
+  </div>
+  <div class="btn-pagination">
+    <button (click)="nextPage()" [disabled]="disableNextButton">»</button>
+  </div>
+</div>

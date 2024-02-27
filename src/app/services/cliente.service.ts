@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Cliente } from '../models/cliente';
@@ -14,6 +14,30 @@ export class ClienteService {
 
   getClients(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.apiUrl);
+  }
+
+  getPaginateClients(
+    page: number,
+    clientsPerPage: number,
+    field?: string,
+    order?: string,
+    filters?: any
+  ): Observable<Cliente[]> {
+    let params = new HttpParams()
+      .set('_page', page.toString())
+      .set('_limit', clientsPerPage.toString())
+      .set('_sort', field ? field : '')
+      .set('_order', order ? order : '');
+
+    if (filters) {
+      Object.keys(filters).forEach((key) => {
+        if (filters[key]) {
+          params = params.set(`${key}_like`, filters[key]);
+        }
+      });
+    }
+
+    return this.http.get<Cliente[]>(this.apiUrl, { params });
   }
 
   getById(idCliente: string): Observable<Cliente | {}> {

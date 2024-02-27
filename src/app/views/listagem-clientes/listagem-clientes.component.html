@@ -32,13 +32,30 @@
     </button>
   </div>
   <div class="actions">
-    <app-button textButton="Adicionar Cliente" (buttonClick)="addButton()"></app-button>
-    <app-button textButton="Visualizar" (buttonClick)="viewButton()"></app-button>
-    <app-button textButton="Remover" (buttonClick)="removeButton()"></app-button>
+    <app-button
+      textButton="Adicionar Cliente"
+      (buttonClick)="addButton()"
+    ></app-button>
+    <app-button
+      textButton="Visualizar"
+      (buttonClick)="viewButton()"
+    ></app-button>
+    <app-button
+      textButton="Remover"
+      (buttonClick)="removeButton()"
+    ></app-button>
   </div>
 </div>
 
-<app-table-list [clientes]="clientes" (selectedClient)="selectedClient($event)"></app-table-list>
+<app-table-list
+  [clientes]="currentPageData$ | async"
+  [currentPage]="currentPage"
+  [disableNextButton]="disableNextButton"
+  [disablePrevButton]="disablePrevButton"
+  (selectedClient)="selectedClient($event)"
+  (orderColumnState)="sort($event)"
+  (offset)="changePage($event)"
+></app-table-list>
 
 <div class="card-component">
   <app-modal-message

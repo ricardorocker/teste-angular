@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, of, tap } from 'rxjs';
+import { Observable, catchError, of, tap } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente';
 import { Filtros } from 'src/app/models/filtros';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -13,10 +13,17 @@ import { ClienteService } from 'src/app/services/cliente.service';
 export class ListagemClientesComponent implements OnInit {
   clientes!: Cliente[]
   clienteSelecionado?: Cliente | null;
-  filtros: Filtros = {};
   showModal: boolean = false;
   feedbackMessage: string = '';
   successMessage: boolean = true;
+  filtros: Filtros = {};
+  currentPageData$!: Observable<Cliente[]>;
+  currentPage: number = 1;
+  clientsPerPage: number = 6;
+  field?: string;
+  order?: string;
+  disableNextButton: boolean = false;
+  disablePrevButton: boolean = true;
 
   constructor(private clienteService: ClienteService, private router: Router) { }
 
@@ -25,11 +32,18 @@ export class ListagemClientesComponent implements OnInit {
   }
 
   loadData(): void {
-    this.clienteService.getClients().subscribe((clientes: Cliente[]) => this.clientes = clientes);
+    this.currentPageData$ = this.clienteService.getPaginateClients(
+      this.currentPage,
+      this.clientsPerPage,
+      this.field,
+      this.order,
+      this.filtros
+    )
   }
 
   filter(): void {
-    // TODO: Implementar
+    this.currentPage = 1;
+    this.loadData();
   }
 
   addButton(): void {
@@ -59,10 +73,45 @@ export class ListagemClientesComponent implements OnInit {
           return of(null);
         })
       )
-      .subscribe();
+        .subscribe();
     } else {
       this.showFeedback('Selecione um cliente para remove-lo.', false);
     }
+  }
+
+  sort(orderState: any[]): void {
+    const asc: boolean = orderState[0];
+    const field: string = orderState[1];
+
+    asc ? (this.order = 'asc') : (this.order = 'desc');
+    this.field = field;
+
+    if (this.currentPage !== 1) this.currentPage = 1;
+
+    this.loadData();
+  }
+
+  changePage(offset: number) {
+    const newPage = this.currentPage + offset;
+
+    this.clienteService
+      .getPaginateClients(
+        newPage,
+        this.clientsPerPage,
+        this.field,
+        this.order,
+        this.filtros
+      )
+      .subscribe((data) => {
+        if (data.length > 0) {
+          this.currentPageData$ = of(data);
+          this.currentPage = newPage;
+          this.disablePrevButton = this.currentPage === 1;
+          this.disableNextButton = data.length < this.clientsPerPage;
+        } else {
+          this.disableNextButton = true;
+        }
+      });
   }
 
   selectedClient(cliente: Cliente | null): void {

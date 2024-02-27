@@ -12,6 +12,7 @@ import { ControlErrorComponent } from './components/control-error/control-error.
 import { ListagemClientesComponent } from './views/listagem-clientes/listagem-clientes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormClienteComponent } from './views/form-cliente/form-cliente.component';
+import { CpfPipe } from './pipes/cpf.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormClienteComponent } from './views/form-cliente/form-cliente.componen
     ControlErrorComponent,
     ListagemClientesComponent,
     FormClienteComponent,
+    CpfPipe,
   ],
   imports: [
     BrowserModule,
