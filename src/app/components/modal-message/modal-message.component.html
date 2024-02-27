@@ -1,0 +1,20 @@
+<div class="card">
+  <img
+    *ngIf="successMessage; else attentionIcon"
+    src="../../../assets/success-icon.png"
+    alt="Success Icon"
+    width="57"
+  />
+  <ng-template #attentionIcon>
+    <img
+      src="../../../assets/attention-icon.png"
+      alt="Attention Icon"
+      width="57"
+    />
+  </ng-template>
+  <ng-container>
+    <p class="message">{{ feedbackMessage }}</p>
+  </ng-container>
+
+  <app-button [width]="146" textButton="OK"></app-button>
+</div>

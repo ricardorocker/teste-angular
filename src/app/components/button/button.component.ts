@@ -9,6 +9,7 @@ export class ButtonComponent {
   @Output() buttonClick = new EventEmitter<void>();
   @Input() textButton!: string;
   @Input() isPrimary: boolean = true;
+  @Input() width?: number;
 
   constructor() { }
 

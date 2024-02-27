@@ -15,4 +15,6 @@
     [isPrimary]="false"
   ></app-button>
   <app-table-list [clientes]="clientes"></app-table-list>
+  <app-modal-message feedbackMessage="Cliente adicionado com sucesso!"></app-modal-message>
+  <app-modal-message feedbackMessage="Não foi possivel incluir o cliente" [successMessage]="false"></app-modal-message>
 </div>
