@@ -2,7 +2,9 @@
 Bem-vindo ao repositório do projeto CRUD de Clientes desenvolvido em Angular. 
 Este projeto inclui funcionalidades de listagem, formulário, estilos personalizados, serviços, pipes, validadores, modelos e componentes reutilizáveis.
 
-## [Video de Demonstração]
+## [Video de Demonstração] - em breve
+![image](https://github.com/ricardorocker/teste-angular/assets/76121782/e9c85b2f-32f7-4e4c-927d-3ed6d58a8c29)
+
 
 ## Estrutura do Projeto
 ### Views
@@ -39,12 +41,15 @@ Este projeto inclui funcionalidades de listagem, formulário, estilos personaliz
 ## Capturas de Tela
 
 ### Tela Principal
+![image](https://github.com/ricardorocker/teste-angular/assets/76121782/c261f070-0348-4916-b1a6-c8a85377b167)
 
 
 ### Tela de Edição
+![image](https://github.com/ricardorocker/teste-angular/assets/76121782/5a892b60-903d-4f0f-8686-19a2d7126579)
 
 
 ### Card de feedback
+![image](https://github.com/ricardorocker/teste-angular/assets/76121782/408cdf8f-194d-443e-b4be-a00026441cf8)
 
 
 
