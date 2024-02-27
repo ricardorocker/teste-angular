@@ -1,0 +1,77 @@
+@import "../../../styles/_variables";
+
+table {
+    width: 100%;
+    padding-top: 38px;
+    padding-bottom: 20px;
+}
+
+th,
+td {
+    width: 190px;
+}
+
+th:first-child,
+td:first-child {
+    width: 34px;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 342px;
+}
+
+.tb-row {
+    padding: 12px 28px;
+    font-size: $fontsize-paragraph;
+    font-weight: $fontweight-bold;
+    line-height: 150%;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.tb-header {
+    background-color: $color-brand-primary-light;
+    color: $color-neutral-white;
+    border-radius: 40px 0 80px 40px;
+    line-height: 150%;
+    text-align: left;
+}
+
+.tb-data {
+    color: $color-neutral-dark;
+    border-radius: 40px;
+}
+
+.row-odd {
+    background-color: $color-neutral-white;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid $color-brand-secondary-medium;
+    border-radius: 4px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    line-height: 14px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: $color-brand-secondary-medium;
+    color: $color-neutral-white;
+}
+
+input[type="checkbox"]:checked::before {
+    content: "\2713";
+    position: absolute;
+    margin-left: 3px;
+    font-size: $fontsize-paragraph;
+    font-weight: $fontweight-bold;
+}
+
+.row-even {
+    background-color: $color-neutral-lightest;
+}

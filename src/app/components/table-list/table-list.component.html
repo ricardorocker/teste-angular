@@ -1,0 +1,32 @@
+<table>
+  <div class="tb-row tb-header">
+    <tr>
+      <th role="row"></th>
+      <th class="nome-column">NOME</th>
+      <th>CPF</th>
+      <th>DATA CADASTRO</th>
+      <th>RENDA MENSAL</th>
+    </tr>
+  </div>
+  <div
+    *ngFor="let cliente of clientes; index as i"
+    [ngClass]="'tb-row tb-data ' + (i % 2 ? 'row-even' : 'row-odd')"
+  >
+    <tr>
+      <td>
+        <input
+          type="checkbox"
+          class="checkbox"
+          [id]="cliente.id"
+          [checked]="cliente === clienteSelecionado"
+          (change)="selectClient(cliente)"
+        />
+      </td>
+      <td>{{ cliente.nome }}</td>
+      <td>{{ cliente.cpf }}</td>
+      <!-- TODO: Implementar cpf custom pipe  -->
+      <td>{{ cliente.dataCadastro | date : "dd/MM/yyy" }}</td>
+      <td>{{ cliente.rendaMensal | currency : "BRL" }}</td>
+    </tr>
+  </div>
+</table>
