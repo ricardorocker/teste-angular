@@ -1,9 +1,12 @@
-<app-header></app-header>
+<nav>
+  <app-header></app-header>
+</nav>
 
-<div class="container">
-  <div class="title">
-    {{ title }}
-  </div>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- <div class="container">
 
   <div class="form-group">
     <label for="nome" class="label">Nome Cliente</label>
@@ -25,4 +28,4 @@
     feedbackMessage="Não foi possivel incluir o cliente"
     [successMessage]="false"
   ></app-modal-message>
-</div>
+</div> -->

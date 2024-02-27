@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 38px;
+}
+
+.filters {
+    display: flex;
+    gap: 0 14px;
+}
+
+.actions {
+    display: flex;
+    gap: 4px;
+}
+
+.filter {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.filter:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}

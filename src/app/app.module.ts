@@ -9,6 +9,8 @@ import { ButtonComponent } from './components/button/button.component';
 import { TableListComponent } from './components/table-list/table-list.component';
 import { ModalMessageComponent } from './components/modal-message/modal-message.component';
 import { ControlErrorComponent } from './components/control-error/control-error.component';
+import { ListagemClientesComponent } from './views/listagem-clientes/listagem-clientes.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { ControlErrorComponent } from './components/control-error/control-error.
     ButtonComponent,
     TableListComponent,
     ModalMessageComponent,
-    ControlErrorComponent
+    ControlErrorComponent,
+    ListagemClientesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
