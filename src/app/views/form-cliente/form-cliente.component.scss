@@ -1,0 +1,16 @@
+.container {
+    width: 1060px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 24px;
+    padding: 70px 0;
+}
+
+.actions {
+    display: flex;
+    gap: 14px;
+    justify-content: flex-end;
+}

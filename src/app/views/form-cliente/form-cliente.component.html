@@ -1,0 +1,111 @@
+<div class="title">
+  {{ (idCliente ? "Visualizar Cliente" : "Adicionar Cliente") | uppercase }}
+</div>
+<div class="container">
+  <div class="overlay" *ngIf="showModal" (click)="onOverlayClick($event)"></div>
+
+  <form [formGroup]="form" class="grid-container">
+    <div class="control">
+      <div class="form-group">
+        <label class="label">Nome Cliente:</label>
+        <input
+          class="input"
+          type="text"
+          id="nome"
+          formControlName="nome"
+          placeholder="Digite o nome"
+        />
+      </div>
+    </div>
+    <div class="control">
+      <div [ngClass]="'form-group ' + (idCliente ? 'disabled' : '')">
+        <label [ngClass]="'label ' + (idCliente ? 'disabled' : '')">CPF:</label>
+        <input
+          [ngClass]="'input ' + (idCliente ? 'disabled' : '')"
+          type="text"
+          mask="000.000.000-00"
+          id="cpf"
+          placeholder="000.000.000-00"
+          formControlName="cpf"
+          [readOnly]="idCliente"
+        />
+      </div>
+    </div>
+    <div class="control">
+      <div class="form-group">
+        <label class="label">Data Nascimento:</label>
+        <input
+          class="input"
+          type="date"
+          id="dataNascimento"
+          formControlName="dataNascimento"
+        />
+      </div>
+    </div>
+    <div class="control">
+      <div class="form-group">
+        <label class="label">Renda Mensal:</label>
+        <input
+          class="input"
+          type="text"
+          id="rendaMensal"
+          formControlName="rendaMensal"
+          prefix="R$"
+          mask="separator"
+          thousandSeparator="."
+          placeholder="R$0.000,00"
+        />
+      </div>
+    </div>
+    <div class="control">
+      <div class="form-group">
+        <label class="label">E-mail:</label>
+        <input
+          class="input"
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Digite o e-mail"
+          required
+          email
+        />
+      </div>
+    </div>
+    <div class="control">
+      <div class="form-group">
+        <label class="label">Data Cadastro:</label>
+        <input
+          class="input"
+          type="date"
+          id="dataCadastro"
+          formControlName="dataCadastro"
+        />
+      </div>
+    </div>
+  </form>
+
+  <div class="actions">
+    <app-button
+      textButton="Cancelar"
+      [isPrimary]="false"
+      [width]="146"
+      (buttonClick)="cancelButton()"
+    ></app-button>
+    <app-button
+      [textButton]="idCliente ? 'Editar' : 'Adicionar'"
+      [width]="146"
+      (buttonClick)="submitButton()"
+    ></app-button>
+  </div>
+</div>
+<div class="card-component">
+  <app-modal-message
+    *ngIf="showModal"
+    (okClick)="onCardClick()"
+    [feedbackMessage]="
+      idCliente
+        ? 'Cliente alterado com sucesso!'
+        : 'Cliente adicionado com sucesso!'
+    "
+  ></app-modal-message>
+</div>

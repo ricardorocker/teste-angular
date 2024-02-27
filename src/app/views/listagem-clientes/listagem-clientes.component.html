@@ -31,9 +31,9 @@
     </button>
   </div>
   <div class="actions">
-    <app-button textButton="Adicionar Cliente"></app-button>
-    <app-button textButton="Visualizar"></app-button>
-    <app-button textButton="Remover"></app-button>
+    <app-button textButton="Adicionar Cliente" (buttonClick)="addButton()"></app-button>
+    <app-button textButton="Visualizar" (buttonClick)="viewButton()"></app-button>
+    <app-button textButton="Remover" (buttonClick)="removeButton()"></app-button>
   </div>
 </div>
 

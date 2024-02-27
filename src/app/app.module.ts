@@ -10,7 +10,8 @@ import { TableListComponent } from './components/table-list/table-list.component
 import { ModalMessageComponent } from './components/modal-message/modal-message.component';
 import { ControlErrorComponent } from './components/control-error/control-error.component';
 import { ListagemClientesComponent } from './views/listagem-clientes/listagem-clientes.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormClienteComponent } from './views/form-cliente/form-cliente.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,15 @@ import { FormsModule } from '@angular/forms';
     TableListComponent,
     ModalMessageComponent,
     ControlErrorComponent,
-    ListagemClientesComponent
+    ListagemClientesComponent,
+    FormClienteComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
